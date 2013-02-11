@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}override.css">
+  </head>
+  <body>
+<div class="container", ng-app="myApp" ng-controller="defaultCtrl">
+
+{%verbatim%}
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div style="margin-top:20px;" class="hero-unit">
+        <div class="row">
+          <span ng-show="data.currentSession" class="span12" my-current-time="format">
+            <h1 style="margin-left: 245px; margin-bottom:50px;">{{data.curTime - data.currentStart  | secstotime }}</h1>
+          </span>
+        </div>
+        <div class="row">
+          <div class="span2"></div>
+          <div class="span4">
+            <a ng-click="clockIn()" class="btn btn-primary btn-large">Clock In</a>
+          </div>
+          <div class="span4">
+            <a ng-click="clockOut()" class="btn btn-primary btn-large">Clock Out</a>
+          </div>
+          <div class="span2"></div>
+        </div>
+      </div>
+<table class="table table-hover">
+  <tbody>
+    <tr ng-show="session.stop" ng-repeat="session in data.sessions">
+      <td>{{ timeDiff(session.stop, session.start) }}</td>
+      <td>{{session.start | date:'medium'}}</td>
+      <td>{{session.stop | date:'medium'}}</td>
+    </tr>
+  </tbody>
+</table>
+{%endverbatim%}
+
+</div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+  <script type="text/javascript" src="http://code.angularjs.org/1.0.4/angular-resource.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+  <script src="{{STATIC_URL}}main.js"></script>
+  </body>
+</html>
