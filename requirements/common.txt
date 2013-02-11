@@ -1,0 +1,2 @@
+git+https://github.com/django/django.git@stable/1.5.x
+git+https://github.com/ondrowan/django-tastypie.git@django-1.5-support
