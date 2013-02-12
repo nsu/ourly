@@ -1,0 +1,3 @@
+# Because Heroku needs a requirements.txt in the root directory to install from
+-r requirements/prod.txt
+psycopg2
