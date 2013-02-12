@@ -7,7 +7,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    # 'django.contrib.sites',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
@@ -16,7 +16,7 @@ INSTALLED_APPS = (
 LOGIN_URL = '/login/'
 ROOT_URLCONF = 'ourly.urls'
 SECRET_KEY = os.environ.get('SECRET_KEY', 'JHJSDFHSFY&(Y&*S*FG*SKHSF(*Y*(S(F')
-SETTINGS_MODULE = 'ourly.settings.dev'
+SETTINGS_MODULE = 'ourly.settings.prod'
 SITE_ID = 1
 STATIC_URL = '/static/'
 USE_L10N = True
