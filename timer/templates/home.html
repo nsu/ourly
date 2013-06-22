@@ -28,7 +28,13 @@
           <div class="span2"></div>
         </div>
       </div>
-<table class="table table-hover">
+<div style="margin-left: 125px; width: 800px;" class="row" ng-show="session.stop" ng-repeat="session in data.sessions">
+    <span class="span3">{{ timeDiff(session.stop, session.start) }}</span>
+    <span class="span3">{{session.start | date:'medium'}}</span>
+    <span class="span2">{{session.stop | date:'medium'}}</span>
+    <div ng-show="data.sessions[$index+1]" style="border-bottom:1px solid lightsteelblue; margin-bottom: 15px; margin-top: 35px" />
+</div>
+<!-- <table class="table table-hover">
   <tbody>
     <tr ng-show="session.stop" ng-repeat="session in data.sessions">
       <td>{{ timeDiff(session.stop, session.start) }}</td>
@@ -36,7 +42,7 @@
       <td>{{session.stop | date:'medium'}}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
 {%endverbatim%}
 
 </div>
