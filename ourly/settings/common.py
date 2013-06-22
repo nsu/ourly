@@ -1,3 +1,6 @@
+import threading
+threading._DummyThread._Thread__stop = lambda x: 42
+
 import os
 
 from django.conf.global_settings import *
@@ -11,7 +14,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'timer'
+    'timer',
+    'gunicorn',
 )
 LOGIN_URL = '/login/'
 ROOT_URLCONF = 'ourly.urls'
@@ -26,3 +30,7 @@ WSGI_APPLICATION = 'ourly.wsgi.application'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+}

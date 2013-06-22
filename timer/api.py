@@ -2,6 +2,7 @@ from tastypie.resources import ModelResource
 from .models import WorkSession
 from tastypie.authorization import Authorization
 from datetime import datetime
+from django.utils.timezone import utc
 
 from django.contrib.auth.models import User
 from tastypie import fields
@@ -29,7 +30,7 @@ class WorkSessionResource(ModelResource):
     def hydrate(self, bundle, request=None):
         bundle.obj.user = bundle.request.user
         if not bundle.obj.start:
-            bundle.obj.start = datetime.now()
+            bundle.obj.start = datetime.utcnow().replace(tzinfo=utc)
         return bundle
 
     class Meta:

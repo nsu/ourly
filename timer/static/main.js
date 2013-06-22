@@ -12,7 +12,8 @@ myApp.directive('myCurrentTime', function($timeout, dateFilter) {
       // used to update the UI
       function updateTime() {
         d = new Date()
-        scope.data.curTime = d.getTime();
+        utcD = new Date( d.getTime() + d.getTimezoneOffset() * 3600 * 1000).toUTCString().replace( / GMT$/, "" )
+        scope.data.curTime = utcD.getTime();
       }
 
       // watch the expression, and update the UI on change.
